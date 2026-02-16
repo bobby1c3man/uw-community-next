@@ -7,6 +7,7 @@ import { LanguageSwitcher } from './LanguageSwitcher'
 
 export function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isVisible, setIsVisible] = useState(false)
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null)
   const t = useTranslations()
   const closeButtonRef = useRef<HTMLButtonElement>(null)
@@ -16,11 +17,26 @@ export function MobileMenu() {
     setOpenSubmenu(openSubmenu === key ? null : key)
   }
 
+  const openMenu = () => {
+    setIsOpen(true)
+    // Trigger animation on next frame
+    requestAnimationFrame(() => setIsVisible(true))
+  }
+
+  const closeMenu = () => {
+    setIsVisible(false)
+    // Wait for animation to finish before unmounting
+    setTimeout(() => {
+      setIsOpen(false)
+      setOpenSubmenu(null)
+    }, 300)
+  }
+
   // Document-level Escape handler
   useEffect(() => {
     if (!isOpen) return
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setIsOpen(false)
+      if (e.key === 'Escape') closeMenu()
     }
     document.addEventListener('keydown', handleKeyDown)
     return () => document.removeEventListener('keydown', handleKeyDown)
@@ -64,24 +80,27 @@ export function MobileMenu() {
       {/* Hamburger button */}
       <button
         className="md:hidden flex flex-col gap-1.5 p-2"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => isOpen ? closeMenu() : openMenu()}
         aria-label="Toggle menu"
         aria-expanded={isOpen}
       >
-        <span className={`block w-6 h-0.5 bg-brand-dark transition-transform ${isOpen ? 'rotate-45 translate-y-2' : ''}`} />
-        <span className={`block w-6 h-0.5 bg-brand-dark transition-opacity ${isOpen ? 'opacity-0' : ''}`} />
-        <span className={`block w-6 h-0.5 bg-brand-dark transition-transform ${isOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+        <span className={`block w-6 h-0.5 bg-brand-dark transition-transform duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''}`} />
+        <span className={`block w-6 h-0.5 bg-brand-dark transition-opacity duration-300 ${isOpen ? 'opacity-0' : ''}`} />
+        <span className={`block w-6 h-0.5 bg-brand-dark transition-transform duration-300 ${isOpen ? '-rotate-45 -translate-y-2' : ''}`} />
       </button>
 
       {/* Mobile menu overlay */}
       {isOpen && (
         <div className="fixed inset-0 z-50 md:hidden" role="dialog" aria-modal="true" ref={menuRef}>
-          <div className="absolute inset-0 bg-black/30" onClick={() => setIsOpen(false)} />
-          <div className="absolute top-0 right-0 w-[280px] h-full bg-white shadow-xl overflow-y-auto">
+          <div
+            className={`absolute inset-0 bg-black/30 transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+            onClick={closeMenu}
+          />
+          <div className={`absolute top-0 right-0 w-[280px] h-full bg-white shadow-xl overflow-y-auto transition-transform duration-300 ease-out ${isVisible ? 'translate-x-0' : 'translate-x-full'}`}>
             {/* Header */}
             <div className="flex items-center justify-between p-4 bg-brand-pink">
               <span className="font-heading text-lg text-brand-dark font-semibold">Menu</span>
-              <button ref={closeButtonRef} onClick={() => setIsOpen(false)} className="text-brand-dark text-2xl" aria-label="Close menu">&times;</button>
+              <button ref={closeButtonRef} onClick={closeMenu} className="text-brand-dark text-2xl" aria-label="Close menu">&times;</button>
             </div>
 
             {/* Nav items */}
@@ -117,7 +136,7 @@ export function MobileMenu() {
                                 ) : (
                                   <a
                                     href={child.href}
-                                    onClick={() => setIsOpen(false)}
+                                    onClick={closeMenu}
                                     className="block py-2 px-2 font-body text-sm text-brand-dark/70 hover:text-brand-yellow transition-colors"
                                   >
                                     {t(child.labelKey)}
@@ -138,7 +157,7 @@ export function MobileMenu() {
                     ) : (
                       <a
                         href={item.href}
-                        onClick={() => setIsOpen(false)}
+                        onClick={closeMenu}
                         className="block py-3 px-2 font-body text-brand-dark hover:text-brand-yellow transition-colors"
                       >
                         {t(item.labelKey)}

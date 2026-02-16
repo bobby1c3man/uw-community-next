@@ -49,10 +49,10 @@ const base = [
 
 const disabledStyles = [
   'inline-flex justify-center gap-2 items-center no-underline',
-  'text-sm font-body font-semibold',
-  'bg-white/40 text-brand-dark/40 backdrop-blur-md',
-  'border-2 border-brand-dark/20 rounded-full',
-  'px-5 py-2.5 cursor-default',
+  'shadow-xl text-sm font-body font-semibold',
+  'bg-white/80 text-[#fd8ebe]/60 backdrop-blur-md',
+  'border-2 border-white/80 rounded-full',
+  'px-5 py-2.5 cursor-default opacity-70',
 ].join(' ')
 
 export function Button({ children, href, className = '', onClick, type = 'button', showArrow = true, disabled = false }: ButtonProps) {

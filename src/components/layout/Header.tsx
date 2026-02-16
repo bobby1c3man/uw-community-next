@@ -91,7 +91,7 @@ export function Header() {
               {t('auth.login')}
             </span>
             <span
-              className="inline-flex justify-center items-center font-body text-sm font-semibold text-brand-dark/40 border-2 border-brand-dark/20 rounded-full px-5 py-2.5 cursor-default"
+              className="inline-flex justify-center items-center font-body text-sm font-semibold text-[#fd8ebe]/60 bg-white/80 shadow-xl border-2 border-white/80 rounded-full px-5 py-2.5 cursor-default opacity-70"
               title={t('nav.comingSoon')}
             >
               {t('auth.signup')}
