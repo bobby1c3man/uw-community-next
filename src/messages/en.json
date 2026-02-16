@@ -1,0 +1,53 @@
+{
+  "meta": {
+    "title": "The Cultural Cooperation Community — Ukrainian Woman project",
+    "description": "The Cultural Cooperation Community brings together artists, cultural professionals and institutions"
+  },
+  "nav": {
+    "projects": "Projects",
+    "opportunities": "Opportunities",
+    "events": "Events",
+    "community": "Community",
+    "artists": "Artists",
+    "organizations": "Organizations",
+    "info": "Info",
+    "about": "About us",
+    "resources": "Resources",
+    "support": "Support",
+    "faq": "FAQ",
+    "comingSoon": "Coming soon"
+  },
+  "hero": {
+    "heading": "Create, Connect, Collaborate",
+    "subtitle": "Platform for woman artists",
+    "description": "A space where art connects. Discover upcoming exhibitions, connect with fellow artists, and explore opportunities for collaboration and volunteering. Create, grow, and expand your horizons with the community.",
+    "joinButton": "Join"
+  },
+  "artists": {
+    "sectionTitle": "Artists",
+    "learnMore": "Learn more",
+    "viewProfile": "View profile"
+  },
+  "opportunities": {
+    "sectionTitle": "Opportunities",
+    "learnMore": "Learn more"
+  },
+  "projects": {
+    "sectionTitle": "Projects",
+    "learnMore": "Learn more",
+    "joinButton": "JOIN"
+  },
+  "footer": {
+    "euFunding": "Co-funded by the European Union",
+    "grantLabel": "Grant Agreement No:",
+    "grantNumber": "101174330",
+    "euDisclaimer": "Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the European Education and Culture Executive Agency (EACEA). Neither the European Union nor the granting authority can be held responsible for them.",
+    "subscribePlaceholder": "Enter Email",
+    "subscribeButton": "Subscribe",
+    "copyright": "UWoman {year} (c). All Rights Reserved"
+  },
+  "auth": {
+    "login": "Log in",
+    "signup": "Sign up"
+  }
+}
