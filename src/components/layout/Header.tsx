@@ -41,13 +41,6 @@ export function Header() {
                       <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </button>
-                ) : item.disabled ? (
-                  <span
-                    className="font-body text-sm text-brand-dark/40 cursor-default inline-flex items-center gap-1"
-                    title={t('nav.comingSoon')}
-                  >
-                    {t(item.labelKey)}
-                  </span>
                 ) : (
                   <a
                     href={item.href}
@@ -61,21 +54,12 @@ export function Header() {
                   <ul className="absolute top-full left-0 mt-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-200 bg-brand-cream shadow-lg rounded-sm min-w-[160px] py-2">
                       {item.children.map((child) => (
                         <li key={child.labelKey}>
-                          {child.disabled ? (
-                            <span
-                              className="block px-4 py-2 font-body text-sm text-brand-dark/40 cursor-default"
-                              title={t('nav.comingSoon')}
-                            >
-                              {t(child.labelKey)}
-                            </span>
-                          ) : (
-                            <a
-                              href={child.href}
-                              className="block px-4 py-2 font-body text-sm text-brand-dark hover:text-brand-yellow transition-colors"
-                            >
-                              {t(child.labelKey)}
-                            </a>
-                          )}
+                          <a
+                            href={child.href}
+                            className="block px-4 py-2 font-body text-sm text-brand-dark hover:text-brand-yellow transition-colors"
+                          >
+                            {t(child.labelKey)}
+                          </a>
                         </li>
                       ))}
                   </ul>
@@ -87,15 +71,15 @@ export function Header() {
           <LanguageSwitcher />
 
           <div className="flex items-center gap-3">
-            <span className="font-body text-sm text-brand-dark/40 cursor-default" title={t('nav.comingSoon')}>
+            <a href="#" className="font-body text-sm text-brand-dark hover:text-brand-yellow transition-colors">
               {t('auth.login')}
-            </span>
-            <span
-              className="inline-flex justify-center items-center font-body text-sm font-semibold text-[#fd8ebe]/60 bg-white/80 shadow-xl border-2 border-white/80 rounded-full px-5 py-2.5 cursor-default opacity-70"
-              title={t('nav.comingSoon')}
+            </a>
+            <a
+              href="#"
+              className="inline-flex justify-center items-center font-body text-sm font-semibold text-[#fd8ebe] bg-white/80 shadow-xl border-2 border-white/80 rounded-full px-5 py-2.5 hover:bg-[#fd8ebe] hover:text-white hover:border-[#fd8ebe] transition-all duration-300"
             >
               {t('auth.signup')}
-            </span>
+            </a>
           </div>
         </nav>
 

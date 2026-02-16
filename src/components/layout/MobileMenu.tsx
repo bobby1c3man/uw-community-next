@@ -126,34 +126,18 @@ export function MobileMenu() {
                           <ul className="pl-4 pb-2">
                             {item.children.map((child) => (
                               <li key={child.labelKey}>
-                                {child.disabled ? (
-                                  <span
-                                    className="block py-2 px-2 font-body text-sm text-brand-dark/40 cursor-default"
-                                    title={t('nav.comingSoon')}
-                                  >
-                                    {t(child.labelKey)}
-                                  </span>
-                                ) : (
-                                  <a
-                                    href={child.href}
-                                    onClick={closeMenu}
-                                    className="block py-2 px-2 font-body text-sm text-brand-dark/70 hover:text-brand-yellow transition-colors"
-                                  >
-                                    {t(child.labelKey)}
-                                  </a>
-                                )}
+                                <a
+                                  href={child.href}
+                                  onClick={closeMenu}
+                                  className="block py-2 px-2 font-body text-sm text-brand-dark/70 hover:text-brand-yellow transition-colors"
+                                >
+                                  {t(child.labelKey)}
+                                </a>
                               </li>
                             ))}
                           </ul>
                         )}
                       </>
-                    ) : item.disabled ? (
-                      <span
-                        className="block py-3 px-2 font-body text-brand-dark/40 cursor-default"
-                        title={t('nav.comingSoon')}
-                      >
-                        {t(item.labelKey)}
-                      </span>
                     ) : (
                       <a
                         href={item.href}

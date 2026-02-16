@@ -26,18 +26,9 @@ export function Footer() {
             <ul className="flex flex-col gap-3">
               {footerNav[0].map((item) => (
                 <li key={item.labelKey}>
-                  {item.disabled ? (
-                    <span
-                      className="font-body text-sm text-brand-dark/40 cursor-default"
-                      title={t('nav.comingSoon')}
-                    >
-                      {t(item.labelKey)}
-                    </span>
-                  ) : (
-                    <a href={item.href} className="font-body text-sm text-brand-dark hover:text-brand-yellow transition-colors">
-                      {t(item.labelKey)}
-                    </a>
-                  )}
+                  <a href={item.href} className="font-body text-sm text-brand-dark hover:text-brand-yellow transition-colors">
+                    {t(item.labelKey)}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -48,18 +39,9 @@ export function Footer() {
             <ul className="flex flex-col gap-3">
               {footerNav[1].map((item) => (
                 <li key={item.labelKey}>
-                  {item.disabled ? (
-                    <span
-                      className="font-body text-sm text-brand-dark/40 cursor-default"
-                      title={t('nav.comingSoon')}
-                    >
-                      {t(item.labelKey)}
-                    </span>
-                  ) : (
-                    <a href={item.href} className="font-body text-sm text-brand-dark hover:text-brand-yellow transition-colors">
-                      {t(item.labelKey)}
-                    </a>
-                  )}
+                  <a href={item.href} className="font-body text-sm text-brand-dark hover:text-brand-yellow transition-colors">
+                    {t(item.labelKey)}
+                  </a>
                 </li>
               ))}
             </ul>

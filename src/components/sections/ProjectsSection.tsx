@@ -27,7 +27,7 @@ export function ProjectsSection() {
 
         <ScrollReveal direction="down">
           <div className="text-center mt-8">
-            <Button disabled>{t('learnMore')}</Button>
+            <Button>{t('learnMore')}</Button>
           </div>
         </ScrollReveal>
       </div>

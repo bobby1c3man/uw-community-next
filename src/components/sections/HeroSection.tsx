@@ -38,7 +38,7 @@ export function HeroSection() {
         </ScrollReveal>
 
         <ScrollReveal direction="down" delay={300}>
-          <Button disabled>{t('joinButton')}</Button>
+          <Button>{t('joinButton')}</Button>
         </ScrollReveal>
       </div>
     </section>
