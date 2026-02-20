@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { nyghtSerif } from '@/lib/fonts'
 
 export const metadata: Metadata = {
   title: 'U·woman — Cultural Cooperation Community',
@@ -18,5 +19,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return (
+    <html className={nyghtSerif.variable} suppressHydrationWarning>
+      <body>{children}</body>
+    </html>
+  )
 }
